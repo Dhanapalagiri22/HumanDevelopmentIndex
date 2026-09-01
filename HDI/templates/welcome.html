@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - HDI Prediction System</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            background: url('/static/images.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            overflow-x: hidden;
+            position: relative;
+        }
+        .navbar {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            z-index: 10;
+        }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 15px;
+            padding: 8px 15px;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+        .navbar a:hover {
+            background: #fff;
+            color: #0b74de;
+        }
+        .content {
+            max-width: 900px;
+            margin: 100px auto;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.8rem;
+            color: #ffdd00;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #ff8c00;
+            margin-top: 20px;
+        }
+        ul {
+            margin: 10px 0 0 20px;
+            line-height: 1.6;
+        }
+        @media screen and (max-width: 768px) {
+            .content {
+                margin: 50px 20px;
+                padding: 20px;
+            }
+            h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="{{ url_for('login') }}">Login</a>
+        <a href="{{ url_for('register') }}">Register</a>
+    </div>
+    <div class="content">
+        <h1>Welcome to the Human Development Index (HDI) Prediction System</h1>
+        <p>Measure and predict well-being across nations using AI-powered insights.</p>
+        <h2>About HDI Prediction</h2>
+        <p>
+            The Human Development Index (HDI) is a composite measure of a country's well-being, 
+            based on <strong>life expectancy</strong>, <strong>education levels</strong>, 
+            and <strong>income (GNI)</strong>.  
+            Our system leverages machine learning to provide more accurate predictions of HDI, 
+            helping policymakers, researchers, and students analyze global development trends.
+        </p>
+        <h2>Key Features:</h2>
+        <ul>
+            <li>📊 Predict HDI based on real-world socio-economic data.</li>
+            <li>🧠 Machine learning model trained for accuracy and reliability.</li>
+            <li>🎓 Incorporates life expectancy, mean years of schooling, and GNI per capita.</li>
+            <li>⚙️ Interactive web platform for easy data input and predictions.</li>
+            <li>🌍 Supports global development research and analysis.</li>
+        </ul>
+        <h2>Why Choose Our System?</h2>
+        <p>
+            Understanding human development is key to building a better future.  
+            Our platform empowers users to explore how education, health, 
+            and income shape development outcomes. With this tool, you can simulate scenarios, 
+            analyze progress, and support sustainable development goals (SDGs).
+        </p>
+    </div>
+</body>
+</html>

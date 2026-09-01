@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HDI Prediction</title>
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='download.jpeg') }}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #007BFF;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+            padding: 6px 12px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .navbar a:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+
+        /* Form container */
+        .container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.6);
+            width: 360px;
+            margin: 60px auto;
+            text-align: center;
+        }
+
+        h1 { color: #ffffff; margin-bottom: 10px; }
+        h3 { color: #f1c40f; margin-bottom: 20px; font-weight: normal; }
+        input[type="number"] {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            width: 95%;
+            padding: 12px;
+            border-radius: 5px;
+            border: none;
+            background-color: #1abc9c;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #16a085;
+        }
+        h2 { margin-top: 20px; color: #f1c40f; }
+
+        .btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 15px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .btn:hover { background-color: #c0392b; }
+
+        .home-btn { background-color: #3498db; }
+        .home-btn:hover { background-color: #2980b9; }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div>Welcome, {{ session.username }}</div>
+        <div>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('contact') }}">Contact</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>HDI Prediction</h1>
+        <h3>Predict HDI for your country</h3>
+
+        <form method="POST">
+            Life Expectancy:<br>
+            <input type="number" step="0.01" name="life" required><br>
+            Mean Years of Schooling:<br>
+            <input type="number" step="0.01" name="mean_school" required><br>
+            Expected Years of Schooling:<br>
+            <input type="number" step="0.01" name="expected_school" required><br>
+            GNI per Capita:<br>
+            <input type="number" step="0.01" name="gni" required><br>
+            <input type="submit" value="Predict HDI">
+        </form>
+
+        {% if prediction %}
+            <h2>Predicted HDI: {{ prediction }}</h2>
+        {% endif %}
+
+        <a href="{{ url_for('home') }}" class="btn home-btn">Back to Home</a>
+    </div>
+</body>
+</html>
